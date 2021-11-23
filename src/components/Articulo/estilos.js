@@ -9,8 +9,22 @@ const styles = {
         textAlign: 'center',
         width: 450,
     },
+    imgWrapper: {
+        border: '1px solid #000',
+        height: 250
+    },
+    imgWrapperImg: (img) => {
+        return {
+            backgroundImage: `url(${img})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundSize: 'contain',
+            // border: '1px solid #000',
+            height: 250
+        }
+    },
     img: {
-        width: '100%'
+        height: '100%'
     },
     h4: {
         fontSize: '22pt',

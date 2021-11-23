@@ -1,11 +1,11 @@
 const styles = {
     button: {
-        backgroundColor: '#125193',
+        background: '#0f80ff',
         border: 'none',
         borderRadius: 5,
         color: '#fff',
         cursor: 'pointer',
-        padding: '10px 20px',
+        padding: '8px 15px'
     }
 }
 
