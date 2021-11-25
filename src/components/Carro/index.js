@@ -1,9 +1,10 @@
+import { Burbuja } from '../Burbuja'
 import styles from './estilos'
 
 export const Carro = () => {
     return (
         <div style={styles.carroContenedor}>
-            <span style={styles.burbujaNumero}>5</span>
+            <Burbuja cantidad={0} />
             <button style={styles.carro}>
                 Carro
             </button>

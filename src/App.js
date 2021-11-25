@@ -16,13 +16,28 @@ const informacion = {
   ]
 }
 
+
 function App() {
   const [data, setData] = useState(informacion)
+  
+  console.log(data)
+
+  const agregarAlCarro = (producto) => {
+    if (data.carrito.find(x => x.id === producto.id)) {
+      const carritoCopia = data.carrito.map(x => x.id === producto.id ? ({...x, cantidad: x.cantidad + 1}) : x)
+      data.carrito = carritoCopia
+      setData({...data})
+      return
+    }
+
+    data.carrito.push({...producto, cantidad: 1})
+    setData({...data})
+  }
 
   return (
     <Fragment>
       <Navbar />
-      <Articulos data={data} />
+      <Articulos agregarAlCarro={agregarAlCarro} data={data} />
     </Fragment>
   );
 }

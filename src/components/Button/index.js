@@ -1,7 +1,7 @@
 import styles from './estilos'
 
-export const Button = () => {
+export const Button = ({children, agregarAlCarro, prod}) => {
     return (
-        <button style={styles.button}>Agregar al carrito</button>
+        <button onClick={() => agregarAlCarro(prod)} style={styles.button}>{children}</button>
     )
 }

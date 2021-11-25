@@ -1,26 +1,17 @@
-import { useState } from 'react'
 import styles from './estilos'
 import { Button } from '../Button'
 
-export const Articulo = ({id, nombre, precio, imagen}) => {
-    const [valor, setValor] = useState(0)
-
-    const handleClick = () => {
-        setValor(valor + 1)
-    }
-
+export const Articulo = ({prod, agregarAlCarro}) => {
     return (
         <article style={styles.article}>
-            <div style={styles.imgWrapperImg(imagen)}>
+            <div style={styles.imgWrapperImg(prod.imagen)}>
                 {/* <img style={styles.img} src={imagen}/> */}
             </div>
 
-            <h4 style={styles.h4}>{nombre}</h4>
-            <p style={styles.p}>${precio.toLocaleString()} - {valor}</p>
+            <h4 style={styles.h4}>{prod.nombre}</h4>
+            <p style={styles.p}>${prod.precio.toLocaleString()}</p>
 
-            <button onClick={() => handleClick()}>Modificar el estado</button>
-
-            <Button />
+            <Button prod={prod} agregarAlCarro={agregarAlCarro}>Add To Cart</Button>
         </article>
     )
 }
