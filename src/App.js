@@ -23,7 +23,9 @@ function App() {
   console.log(data)
 
   const agregarAlCarro = (producto) => {
+    // 1- Verificar si el producto clickeado ya està en el carrito
     if (data.carrito.find(x => x.id === producto.id)) {
+      // 2- En caso de ya estar en el carrito, aumentamos la cantidad en 1
       const carritoCopia = data.carrito.map(x => x.id === producto.id ? ({...x, cantidad: x.cantidad + 1}) : x)
       data.carrito = carritoCopia
       setData({...data})
@@ -34,9 +36,14 @@ function App() {
     setData({...data})
   }
 
+  // App > Navbar > Carro > Burbuja > Numero de productos
+
+  // let cantidad = data.carrito.length
+  let cantidad = data.carrito.reduce((acum, actual) => acum + actual.cantidad, 0)
+
   return (
     <Fragment>
-      <Navbar />
+      <Navbar cantidad={cantidad} productos={data.carrito} />
       <Articulos agregarAlCarro={agregarAlCarro} data={data} />
     </Fragment>
   );
