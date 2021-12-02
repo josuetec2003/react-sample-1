@@ -20,8 +20,6 @@ const informacion = {
 function App() {
   const [data, setData] = useState(informacion)
   
-  console.log(data)
-
   const agregarAlCarro = (producto) => {
     // 1- Verificar si el producto clickeado ya està en el carrito
     if (data.carrito.find(x => x.id === producto.id)) {
